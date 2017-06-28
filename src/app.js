@@ -4,24 +4,27 @@ import { connect } from 'react-redux';
 
 
 import * as albumsActions from './actions/AlbumsActions';
+import * as photosActions from './actions/PhotosActions';
+import {Albums} from './pages/albums/albums';
 import Header from './components/header/index';
-import Albums from './pages/albums/albums';
-import Photos from './pages/photos/photos';
+import Photos from './pages/photos/photosList';
 
 class App extends React.Component {
 
     render() {
-        const { albums } = this.props;
+        const { albums, photos } = this.props;
         const { setAlbums } = this.props.albumsActions;
+        const { setPhotos } = this.props.photosActions;
         return(
             <div>
-                <Header/>
                 <Albums
                     setAlbums={ setAlbums }
+                    setPhotos={ setPhotos }
                     albums ={ albums.albums }
+                    photos ={ photos.photos }
                     fetching={albums.fetching}
                 />
-                {this.props.children}
+                {/*{this.props.children}*/}
             </div>
         );
     }
@@ -29,13 +32,15 @@ class App extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    albums: state.albums
+    albums: state.albums,
+    photos: state.photos
   }
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    albumsActions: bindActionCreators(albumsActions, dispatch)
+      albumsActions: bindActionCreators(albumsActions, dispatch),
+      photosActions: bindActionCreators(photosActions, dispatch)
   }
 }
 

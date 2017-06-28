@@ -1,4 +1,4 @@
-export Photos from './photos';
+export Photos from './photosList';
 export PhotosRoutes from './routes';
 
 

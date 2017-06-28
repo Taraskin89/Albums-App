@@ -1,5 +1,9 @@
 import React from 'react';
-import { Route } from 'react-router';
+import {
+    BrowserRouter as Router,
+    Route,
+    Link
+} from 'react-router-dom';
 import Albums from './albums';
 
 export default (

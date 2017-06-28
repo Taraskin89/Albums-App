@@ -1,23 +1,25 @@
 import React from 'react';
-import { Router, Route } from 'react-router';
-import { NavLink, Redirect, Switch } from 'react-router-dom';
+import  {
+    Route,
+    Link,
+    NotFoundRouter
+} from 'react-router-dom';
 
 import Albums from './pages/albums/albums';
-//import AlbumsRoutes from './pages/albums/routes';
 import ErrorPage from './pages/error/index';
 import App from './app';
-import {AlbumsRoutes} from './pages/albums/index';
-import {PhotosRoutes} from './pages/photos/index';
+import Header from './components/header/index';
+import { PhotosRoutes } from './pages/photos/index';
+import Photo from './pages/photos/photo';
 
 
-export default(
+export const routes = (
 
-    <Route>
-        <Switch>
-            <Route path='/' component={ App } />
-            { AlbumsRoutes }
-            { PhotosRoutes }
-        </Switch>
-    </Route>
+        <div>
+            <Header/>
+            <Route exact path='/' component={ App }/>
+                { PhotosRoutes }
+                {/*<Route path='/*' component={ ErrorPage }/>*/}
+        </div>
 
 );

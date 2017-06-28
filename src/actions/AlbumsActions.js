@@ -35,17 +35,12 @@ export function setAlbums() {
       //     payload: year
       // });
 
-      loadData
-          .then((data)=>{
-              dispatch({
-                  type: GET_ALBUMS_SUCCESS,
-                  payload: data
-                  //},1000)
-              });
+      loadData.then((data)=>{
+          dispatch({
+              type: GET_ALBUMS_SUCCESS,
+              payload: data
           });
-
-      //setTimeout(()=>{
-
+      });
   }
 
 }
@@ -55,7 +50,7 @@ export function openAlbums(payload) {
         dispatch({
             type: ROUTING,
             payload:{
-                method: 'push', //или, например, replace
+                method: 'push',
                 nextUrl: '/photos'
             }
         })

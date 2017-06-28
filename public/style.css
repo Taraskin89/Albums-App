@@ -1,3 +1,6 @@
 .titleAlbums{
     height: 50px;
 }
+.albumId-hidden{
+    display: none !important;
+}
