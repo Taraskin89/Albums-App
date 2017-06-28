@@ -1,7 +1,7 @@
 ## React Albums App
 
 1. Run `npm i`
-2. Run `npm run dev` to start development mode. Project will be available at `localhost:3000`
+2. Run `npm run dev` to start development mode. Project will be available at `localhost:8090`
 
 Api
  - All albums `https://jsonplaceholder.typicode.com/albums`

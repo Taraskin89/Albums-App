@@ -28,15 +28,15 @@ export default class Albums extends React.Component{
                             <div className='thumbnail'>
                                 User - { item.userId }
                                 <img src='...' alt='...'/>
-                                    <div className='caption'>
-                                        <h3>Album #{ item.id }</h3>
-                                        <p className='titleAlbums'>{ item.title }</p>
-                                        <p>
+                                <div className='caption'>
+                                    <h3>Album #{ item.id }</h3>
+                                    <p className='titleAlbums'>{ item.title }</p>
+                                    <p>
                                             {/*<a href='#' className='btn btn-primary' role='button'>*/}
-                                                <Link to='/photos' onClick={ ::this.showLog }>View photos</Link>
+                                        <Link to='/photos' onClick={ ::this.showLog }>View photos</Link>
                                             {/*</a>*/}
-                                        </p>
-                                    </div>
+                                    </p>
+                                </div>
                             </div>
                         </div>
                 )
