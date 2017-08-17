@@ -2,19 +2,22 @@
 import React from 'react';
 import $ from 'jquery';
 
- const loadData =
-    $.ajax({
-        url: url,
-        type: 'GET',
-        dataType: 'jsonp',
-        connectType: 'application/json; charset=utf8',
+export const loadData =  function (url) {
+    return new Promise((resolve, reject)=>{
+        $.ajax({
+            url: url,
+            type: 'GET',
+            async: false,
+            dataType: 'jsonp',
+            connectType: 'application/json; charset=utf8',
 
-        success: (data)=>{
-           console.log('load Data success!', data);
-        },
-        error: ()=>{
-            console.log('load Data ERROR!', url);
-        }
+            success: (data)=>{
+                resolve(data);
+            },
+            error: ()=>{
+                reject();
+            }
+        });
     });
 
- export default loadData;
+}

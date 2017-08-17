@@ -2,24 +2,28 @@ import React from 'react';
 import  {
     Route,
     Link,
-    NotFoundRouter
+    NotFoundRouter,
+    Switch
 } from 'react-router-dom';
 
-import Albums from './pages/albums/albums';
-import ErrorPage from './pages/error/index';
-import App from './app';
-import Header from './components/header/index';
-import { PhotosRoutes } from './pages/photos/index';
-import Photo from './pages/photos/photo';
+
+import Home from './components/home';
+import Contact from './components/conatct';
+import About from './components/about';
+import AlbumsRoute from './components/albums/albumsRoute';
 
 
-export const routes = (
-
+export default class Main extends React.Component{
+  render(){
+    return(
         <div>
-            <Header/>
-            <Route exact path='/' component={ App }/>
-                { PhotosRoutes }
-                {/*<Route path='/*' component={ ErrorPage }/>*/}
+          <Switch>
+            <Route exact path='/' component={ Home } />
+            <Route path='/albums' component={ AlbumsRoute } />
+            <Route path='/about' component={ About } />
+            <Route path='/contact' component={ Contact } />
+          </Switch>
         </div>
-
-);
+    );
+  }
+}

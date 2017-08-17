@@ -1,41 +1,16 @@
 import { GET_ALBUMS_REQUEST, GET_ALBUMS_SUCCESS } from '../constants/Albums';
-import { ROUTING } from '../constants/Routing';
-import $ from 'jquery';
 
-//import loadData  from '../utils/load';
+import { loadData }  from '../utils/load';
 
-const url = 'https://jsonplaceholder.typicode.com/albums';
-
-const loadData = new Promise((resolve, reject)=>{
-        $.ajax({
-            url: url,
-            type: 'GET',
-            async: false,
-            dataType: 'jsonp',
-            connectType: 'application/json; charset=utf8',
-
-            success: (data)=>{
-                resolve(data);
-            },
-            error: ()=>{
-                reject();
-            }
-        });
-    });
-
-
-
-
-
-export function setAlbums() {
+export function setAlbums(url) {
 
   return (dispatch)=>{
-      // dispatch({
-      //     type: GET_ALBUMS_REQUEST,
-      //     payload: year
-      // });
+      dispatch({
+          type: GET_ALBUMS_REQUEST,
+          payload: 'Please wait...!'
+      });
 
-      loadData.then((data)=>{
+      loadData(url).then((data)=>{
           dispatch({
               type: GET_ALBUMS_SUCCESS,
               payload: data
@@ -43,16 +18,4 @@ export function setAlbums() {
       });
   }
 
-}
-
-export function openAlbums(payload) {
-    return(dispatch)=>{
-        dispatch({
-            type: ROUTING,
-            payload:{
-                method: 'push',
-                nextUrl: '/photos'
-            }
-        })
-    }
 }
